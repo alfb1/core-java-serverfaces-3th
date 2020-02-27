@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<html
+     xmlns="http://www.w3.org/1999/xhtml"
+     xmlns:h="http://xmlns.jcp.org/jsf/html"
+     xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+ 
+   <h:head>
+     <h:outputStylesheet library="css" name="styles.css" />
+     <title>#{msgs.title}</title>
+   </h:head>
+   
+   <h:body>
+      
+      <h:form>
+          <h1>#{msgs.enterPayment}</h1>
+          <h:panelGrid columns="3">
+             #{msgs.amount}
+             <h:inputText id="amount" label="#{msgs.amount}" value="#{payment.amount}">
+                <f:convertNumber minFractionDigits="2"/>
+             </h:inputText>
+             <h:message for="amount" styleClass="errorMessage" />
+             
+             #{msgs.creditCard}
+             <h:inputText id="card" label="#{msgs.creditCard}" value="#{payment.card}" required="true">
+                <f:validator validatorId="com.corejsf.Card" />
+                <f:converter converterId="com.corejsf.Card" />
+             </h:inputText>
+             <h:message for="card" styleClass="errorMessage" />
+             
+             #{msgs.expirationDate}
+             <h:inputText id="date" label="#{msgs.expirationDate}" value="#{payment.date}">
+               <f:convertDateTime pattern="MM/yyyy" />
+             </h:inputText>
+             <h:message for="date" />
+          </h:panelGrid>
+          
+          <h:commandButton value="#{msgs.btn_process}" action="result" />
+      </h:form>
+      
+   </h:body>
+
+</html>

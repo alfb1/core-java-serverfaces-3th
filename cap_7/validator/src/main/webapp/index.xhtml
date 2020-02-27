@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html">
+
+	<h:head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<h:outputStylesheet library="css" name="styles.css" />
+		<title>#{msg.title}</title>
+	</h:head>
+
+	<h:body>
+		<h:form>
+            <h:panelGrid columns="2">
+              <h:outputLabel value="#{msg.language}" for="language" />
+              <h:selectOneMenu id="language" 
+                               value="#{payment.language}" 
+                               valueChangeListener="#{payment.languageCodeChanged}" 
+                               onchange="submit()">
+                 <f:selectItems value="#{payment.languages}" />
+              </h:selectOneMenu>
+            </h:panelGrid>
+			<h1>#{msg.enterPayment}</h1>
+		</h:form>
+		        <h:form>
+			<h:panelGrid columns="3">
+           #{msg.amount}
+           <h:inputText id="amount" 
+                        label="#{msg.amount}"
+					    value="#{payment.amount}"
+					    required="true">
+					<f:convertNumber minFractionDigits="2" />
+					<f:validateDoubleRange minimum="2" maximum="1000"/>
+				</h:inputText>
+				<h:message for="amount" styleClass="errorMessage" />
+				           #{msg.creditCard}
+           <h:inputText id="card" 
+                        label="#{msg.creditCard}"
+					    value="#{payment.card}"
+					    required="true"
+					    requiredMessage="#{msg.cardRequired}">
+		     <f:validateLength minimum="13" />
+		  </h:inputText>
+		  
+		  		  <h:message for="card" styleClass="errorMessage" />
+           
+           #{msg.expirationDate}
+           <h:inputText id="date" 
+                        label="#{msg.expirationDate}"
+					    value="#{payment.date}"
+					    required="true" >
+					<f:convertDateTime pattern="MM/yyyy" />
+		   </h:inputText>
+		   		   <h:message for="date" styleClass="errorMessage" />
+
+			</h:panelGrid>
+			<h:commandButton value="#{msg.btn_process}" action="result" />
+			<h:commandButton value="#{msg.btn_cancel}" action="canceled" immediate="true" />
+		   
+		   </h:form>		
+		</h:body>
+
+</html>

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<html
+     xmlns="http://www.w3.org/1999/xhtml"
+     xmlns:h="http://xmlns.jcp.org/jsf/html"
+     xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+ 
+   <h:head>
+     <h:outputStylesheet library="css" name="styles.css" />
+     <title>#{msgs.title}</title>
+   </h:head>
+   
+   <h:body>
+      
+      <h:form>
+          <h1>#{msgs.dayInformation}</h1>
+          <h:panelGrid columns="3">
+             #{msgs.day}
+             <h:inputText id="day" value="#{backingBean.day}"  size="2" required="true" />
+             <h:panelGroup/>
+             
+             #{msgs.month}
+             <h:inputText id="month" value="#{backingBean.month}"  size="2" required="true" />
+             <h:panelGroup/>
+             
+             #{msgs.year}
+             <h:inputText id="year" value="#{backingBean.year}"  size="4" required="true" validator="#{backingBean.validateDate}" />
+             <h:message for="year" styleClass="errorMessage" />
+             
+          </h:panelGrid>
+          
+          <h:commandButton value="#{msgs.btn_process}" action="result" />
+      </h:form>
+      
+   </h:body>
+
+</html>
