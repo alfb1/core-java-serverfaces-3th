@@ -1,0 +1,29 @@
+.columnHeader {
+   font-style: bold;
+}
+.columnFooter {
+   font-size: 0.75em;
+}
+
+.caption{
+	font-size:0.95em;
+	font-style:bold;
+}
+
+.tbl{
+	width:250px;	
+}
+
+.header{
+	text-align:center;
+	color:Snow;
+	background:Teal;
+}
+
+.oddRow{
+	background : MediumTurquoise;
+}
+
+.evenRow{
+	background : PowderBlue;
+}

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+<h:head>
+<title>#{msgs.windowTitle}</title>
+<h:outputStylesheet library="css" name="styles.css"/>
+</h:head>
+<h:body>
+  
+   <h:form>
+       <h:dataTable value="#{tableData.names}" var="name" captionClass="caption" styleClass="tbl" headerClass="header" rowClasses="oddRow, evenRow">
+         
+         <f:facet name="caption">#{msgs.tableCaption}</f:facet>
+         
+         <h:column footerClass="columnFooter">
+            <f:facet name="header">#{msgs.lastNameColumn}</f:facet>
+            #{name.last},
+            <f:facet name="footer">#{msgs.alphanumeric}</f:facet>
+         </h:column>
+         <h:column footerClass="columnFooter">
+            <f:facet name="header">#{msgs.firstNameColumn}</f:facet>
+            #{name.first}
+            <f:facet name="footer">#{msgs.alphanumeric}</f:facet>
+         </h:column>
+       </h:dataTable>
+   </h:form>
+   
+</h:body>
+</html>

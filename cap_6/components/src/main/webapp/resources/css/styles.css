@@ -1,0 +1,27 @@
+.allColumns {
+   text-align: center;
+}
+.headers {
+   text-align: center;
+}
+
+
+.principal{
+	background: RoyalBlue;
+}
+
+.img{
+	border: 0px;
+}
+
+.oddRow{
+	background : MediumTurquoise;
+}
+
+.evenRow{
+	background : PowderBlue;
+}
+
+.tbl{
+	width:100%;	
+}
