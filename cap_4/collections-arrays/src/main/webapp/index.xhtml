@@ -1,0 +1,29 @@
+<html xmlns="http://www.w3.org/1999/xhtml" 
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+<h:head>
+  <title>#{msgs.windowTitle}</title>
+</h:head>
+
+<h:body>
+   <h:form>
+   
+     <h:panelGrid columns="2">
+        #{msgs.weekDay}
+     
+        <h:selectOneMenu value="#{snack.clienteDay}" >
+          <f:selectItems value="#{snack.daysOfWeek}" var="w" itemLabel="#{w.dayName}" itemValue="#{w.dayNumber}"/>
+        </h:selectOneMenu>
+   
+        #{msgs.menuPrompt}
+        <h:selectManyListbox value="#{snack.clientBurgerItems}">
+           <f:selectItems value="#{snack.menuItems}" />
+        </h:selectManyListbox>
+     </h:panelGrid>
+     
+     <h:commandButton action="thankYou" value="#{msgs.btnConfirm}" />
+     
+   </h:form>
+</h:body>
+
+</html>

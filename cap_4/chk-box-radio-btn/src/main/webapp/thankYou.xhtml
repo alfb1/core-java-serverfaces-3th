@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+<h:head>
+	<title>#{msgs.windowTitle}</title>
+</h:head>
+
+<h:body>
+  <h:form>
+   <h:panelGrid columns="2" > 
+
+		#{msgs.radioBtnPrompt} <h:selectBooleanCheckbox value="#{user.contactMe}" />
+   
+        #{msgs.checkBoxes}
+        <h:selectManyListbox>
+		  <f:selectItems value="#{user.colors}" />
+	    </h:selectManyListbox>
+    
+        #{msgs.radioButtons}
+        <h:outputText value="#{user.education}" />
+	    
+	    #{msgs.yearPrompt}
+        <h:outputText value="#{user.year}" />
+        
+        #{msgs.languagePrompt}
+        <h:selectManyListbox>
+		  <f:selectItems value="#{user.languages}" />
+	    </h:selectManyListbox>
+	
+	</h:panelGrid>  
+	<h:commandButton action="index" value="#{msgs.btnBack}" />
+  </h:form>
+</h:body>
+</html>

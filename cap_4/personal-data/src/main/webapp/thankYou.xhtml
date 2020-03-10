@@ -1,0 +1,26 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html">
+<h:head>
+	<title>#{msgs.thankYouWindowTitle}</title>
+</h:head>
+<h:body>
+
+	<h:outputText value="#{msgs.thankYouWindowTitle}"
+		style="font-style: italic; font-size: 1.5em;" />
+
+	<h:form>
+
+		<h:panelGrid columns="2">
+          <h:outputText value="#{msgs.namePrompt}" style="font-style: italic;" />
+          #{user.name}
+          <br/>
+          
+          <h:outputText value="#{msgs.aboutYourselfPrompt}"  style="font-style: italic;" />
+          <pre>#{user.aboutYourself}</pre>
+		</h:panelGrid>
+
+		<h:commandButton value="#{msgs.backPrompt}" action="index" />
+	</h:form>
+
+</h:body>
+</html>

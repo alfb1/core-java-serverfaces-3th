@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+<h:head>
+	<h:outputStylesheet library="css" name="styles.css" />
+	<title>#{msgs.windowTitle}</title>
+</h:head>
+<h:body>
+
+	<h:form>
+		<h:panelGrid columns="2">
+			#{msgs.radioBtnPrompt}<h:selectBooleanCheckbox value="#{user.contactMe}" />
+    
+		    #{msgs.checkBoxes}
+		    <h:selectManyCheckbox value="#{user.colors}" layout="lineDirection"
+				border="1" enabledClass="enabled">
+				<f:selectItem itemValue="Red" itemLabel="Red" />
+				<f:selectItem itemValue="Blue" itemLabel="Blue" />
+				<f:selectItem itemValue="Yellow" itemLabel="Yellow" />
+				<f:selectItem itemValue="Green" itemLabel="Green" />
+				<f:selectItem itemValue="Orange" itemLabel="Orange" />
+			</h:selectManyCheckbox>
+    
+		    #{msgs.radioButtons}
+		    <h:selectOneRadio value="#{user.education}" layout="pageDirection"
+				border="2">
+				<f:selectItem itemValue="High School" itemLabel="High School" />
+				<f:selectItem itemValue="Bachelor's" itemLabel="Bachelor's" />
+				<f:selectItem itemValue="Master's" itemLabel="Mater's" />
+				<f:selectItem itemValue="Doctorate" itemLabel="Doctorate" />
+			</h:selectOneRadio>
+	
+			#{msgs.yearPrompt}
+			<h:selectOneListbox value="#{user.year}" size="5">
+				<f:selectItem itemValue="1900" itemLabel="1900" />
+				<f:selectItem itemValue="1910" itemLabel="1910" />
+				<f:selectItem itemValue="1980" itemLabel="1980" />
+				<f:selectItem itemValue="2000" itemLabel="2000" />
+				<f:selectItem itemValue="2010" itemLabel="2010" />
+				<f:selectItem itemValue="2020" itemLabel="2020" />
+				<f:selectItem itemValue="2030" itemLabel="2020" />
+			</h:selectOneListbox>
+	
+			#{msgs.languagePrompt}
+			<h:selectManyListbox value="#{user.languages}" size="5">
+				<f:selectItem itemValue="English" itemLabel="English" />
+				<f:selectItem itemValue="French" itemLabel="French" />
+				<f:selectItem itemValue="Italian" itemLabel="Italian" />
+				<f:selectItem itemValue="Spanish" itemLabel="Spanish" />
+				<f:selectItem itemValue="Russian" itemLabel="Russian" />
+				<f:selectItem itemValue="Portuguese" itemLabel="Portuguese" />
+				<f:selectItem itemValue="Chinese" itemLabel="Chinese" />
+			</h:selectManyListbox>
+		</h:panelGrid>
+
+		<h:commandButton action="thankYou" value="#{msgs.btnConfirm}" />
+	</h:form>
+
+</h:body>
+</html>
