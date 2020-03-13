@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+<h:head>
+   <title>#{msgs.windowTitle}</title>
+   <h:outputStylesheet library="css" name="styles.css"/>
+</h:head>
+
+<h:body>
+  
+   <h:form>
+       <h:dataTable value="#{tableData.names}" 
+                    var="name" 
+                    captionClass="caption" 
+                    styleClass="tbl" 
+                    headerClass="header" 
+                    rowClasses="oddRow, evenRow"
+                    columnClasses="center,,,center">
+         
+         <f:facet name="caption">#{msgs.tableCaption}</f:facet>
+         
+         <h:column>#{tableData.names.rowIndex + 1}</h:column>
+         
+         <h:column footerClass="columnFooter">
+            <f:facet name="header">
+              <h:commandLink action="#{tableData.sortByLast}">
+                   #{msgs.lastNameColumn}
+              </h:commandLink>
+            </f:facet>
+            
+            #{name.last},
+            <f:facet name="footer">#{msgs.alphanumeric}</f:facet>
+         </h:column>
+         
+         <h:column footerClass="columnFooter">
+            <f:facet name="header">
+               <h:commandLink action="#{tableData.sortByFirst}">
+                 #{msgs.firstNameColumn}
+               </h:commandLink>
+             </f:facet>
+            #{name.first}
+            <f:facet name="footer">#{msgs.alphanumeric}</f:facet>
+         </h:column>
+         
+         <h:column>
+           <h:commandLink action="#{tableData.deleteRow()}">
+             <h:graphicImage library="images" name="trash-10-16.png" title="#{msgs.deleteColumn}"/>
+           </h:commandLink>  
+         </h:column>
+         
+       </h:dataTable>
+       <h:commandButton action="#{tableData.reset}" value="#{msgs.resetButton}"/>
+   </h:form>
+   
+</h:body>
+</html>

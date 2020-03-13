@@ -2,7 +2,7 @@
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
          xmlns="http://java.sun.com/xml/ns/javaee" 
          xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_4_0.xsd" version="4.0">
-  <display-name>components</display-name>
+  <display-name>editing</display-name>
   <servlet>
     <servlet-name>Faces Servlet</servlet-name>
     <servlet-class>javax.faces.webapp.FacesServlet</servlet-class>
@@ -13,13 +13,12 @@
     <url-pattern>*.jsf</url-pattern>
   </servlet-mapping>
   
+  <context-param>
+    <param-name>javax.faces.PROJECT_STAGE</param-name>
+    <param-value>Development</param-value>
+  </context-param>
+  
   <welcome-file-list>
     <welcome-file>index.jsf</welcome-file>
   </welcome-file-list>
-  
-  <context-param>
-     <param-name>javax.faces.PROJECT_STAGE</param-name>
-     <param-value>Development</param-value>
-  
-  </context-param>
 </web-app>

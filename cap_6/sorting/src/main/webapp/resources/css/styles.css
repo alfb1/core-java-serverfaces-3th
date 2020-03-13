@@ -1,0 +1,47 @@
+.columnHeader {
+   font-style: bold;
+}
+.columnFooter {
+   font-size: 0.75em;
+}
+
+.caption{
+	font-size:0.95em;
+	font-style:bold;
+}
+
+.tbl{
+	width:100%;	
+}
+
+.header{
+	text-align:center;
+	color:Snow;
+	background:Teal;
+}
+
+.oddRow{
+	background : MediumTurquoise;
+}
+
+.evenRow{
+	background : PowderBlue;
+}
+
+a:link, a:visited {
+  color: white;
+}
+
+a:hover, a:active {
+  background-color: red;
+  font-style: bold;
+}
+
+
+td a:hover, td a:active{
+  background-color: white;
+}
+
+.center{
+	text-align:center;
+}

@@ -1,0 +1,39 @@
+.names {
+   border: thin solid black;
+   width:100%;
+}
+.namesHeader {
+   text-align: center;
+   font-style: bold;
+   color: Snow;
+   background: Teal;
+}
+.last {
+   height: 25px;
+   text-align: center;
+   background: MediumTurquoise;
+}
+.first {
+   text-align: left;
+   background: PowderBlue;
+}
+
+.deleteCol {
+   text-align: center;
+   color:black;
+   background: Crimson;
+}
+
+a:link, a:visited {
+  background-color: Crimson;
+  color: white;
+  padding: 14px 23px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+}
+
+a:hover, a:active {
+  background-color: red;
+  font-style: bold;
+}
