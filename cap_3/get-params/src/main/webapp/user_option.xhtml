@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	  xmlns:h="http://java.sun.com/jsf/html"
+	  xmlns:f="http://java.sun.com/jsf/core"
+	  >
+
+<f:metadata>
+	<f:viewParam name="p" value="#{resultBean.myParam1}" />
+	<f:viewParam name="q" value="#{resultBean.myParam2}" />
+</f:metadata>
+   
+   <h:head>
+	  <title>#{msgs.windowTitle}</title>
+   </h:head>
+   
+   <h:body>
+     <h:form>
+        <p>#{msgs.capital}</p>
+        <h:outputText value="#{resultBean.myParam1}"/>
+        
+        <p>#{msgs.currency}</p>
+        <h:outputText value="#{resultBean.myParam2}"/>
+        
+        <p>
+           <h:commandButton value="Back" action="index"  />
+        
+        </p>
+     </h:form>
+   </h:body>
+   
+   
+</html>
