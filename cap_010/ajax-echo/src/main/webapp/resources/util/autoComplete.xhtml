@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:composite="http://java.sun.com/jsf/composite">
+
+<h:head>
+	<title>IGNORED</title>
+</h:head>
+
+<body>
+	<ui:composition>
+
+		<composite:interface>
+			<composite:attribute name="value" required="true" />
+			<composite:attribute name="completionItems" required="true" />
+		</composite:interface>
+
+		<composite:implementation>
+
+				<h:outputScript library="javascript" name="autoComplete.js"
+					target="head" />
+
+
+			<h:inputText id="input" value="#{cc.attrs.value}"
+				valueChangeListener="#{autoCompleteListener.valueChanged}"
+				onkeyup="com.corejsf2.updateCompletionItems(this, event)"
+				onblur="com.corejsf2.inputLostFocus(this)" />
+
+			<h:selectOneListbox id="listbox" style="display: none;"
+				valueChangeListener="#{autoCompleteListener.completionItemSelected}">
+				<f:selectItems value="#{cc.attrs.completionItems}" />
+				<f:ajax render="input" />
+			</h:selectOneListbox>
+			
+		</composite:implementation>
+
+	</ui:composition>
+
+</body>
+
+</html>

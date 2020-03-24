@@ -1,77 +1,70 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml"
-	xmlns:h="http://java.sun.com/jsf/html"
-	xmlns:f="http://java.sun.com/jsf/core">
+<html    xmlns="http://www.w3.org/1999/xhtml"
+       xmlns:h="http://java.sun.com/jsf/html"
+	   xmlns:f="http://java.sun.com/jsf/core" 
+	xmlns:util="http://java.sun.com/jsf/composite/util">
+
 <h:head>
 	<title>#{msgs.title}</title>
-	<h:outputScript library="javascript" name="prototype-1.6.0.2.js" />
-	<h:outputStylesheet library="css" name="styles.css" />
-	<script type="text/javascript">
-	  if (!com) var com = {}
-	  
-	  if ( !com.corejsf ) 
-	  {
-		    com.corejsf = {
-			  showProgress : function(data)
-			  {
-				  var inputId = data.source.id;
-				  console.log("inputId", inputId);
-				  
-				  //var progressbarId = inputId.substring( 0, inputId.length - "name".length) + "pole";
-				  var progressbarId = "pole";
-				  
-				  console.log("progressbarId", progressbarId);
-				  console.log("status :", data.status);
-				  if ( data.status == "begin")
-					 Element.show( progressbarId );
-				  else if ( data.status == "success")
-					 Element.hide( progressbarId );
-				  
-			  }
-		  }
-	  }
-	</script>
+        <h:outputScript     library="javascript" name="prototype-1.6.0.2.js" />
+        <h:outputScript     library="javascript" name="login.js"  />
+	    <h:outputStylesheet library="css"        name="styles.css"  />
 </h:head>
 
 <h:body>
-  <h:form prependId="false">
-	<h:panelGrid columns="2">
-	    #{msgs.name}
-	    <h:panelGroup>
-		<h:inputText value="#{user.name}" id="name" validator="#{user.validateName}">
-		    <!-- 
-			<f:ajax event="keyup" execute="@this" render="echo" />
-			 -->
-			 <!-- default execute value is @this -->
-			 <!--  sem o namespace :
-			  <f:ajax event="blur" render="echo nameError" onevent="showProgress" /> 
-			 -->
-			 <!-- com namespace : -->
-			 <f:ajax event="blur" render="echo nameError" onevent="com.corejsf.showProgress" />
-		</h:inputText>
+
+	<h:form prependId="false">
+		<h:panelGrid columns="2">
+	      #{msgs.name}
+	      <h:panelGroup>
+				<h:inputText value="#{user.name}" id="name"
+					validator="#{user.validateName}">
+					<f:ajax event="keyup" execute="@this" render="echo" />
+
+					<!-- default execute value is @this -->
+					<!--  sem o namespace :
+			              <f:ajax event="blur" render="echo nameError" onevent="showProgress" /> 
+			        -->
+					<!-- com namespace : -->
+					<f:ajax event="blur" render="echo nameError"
+						onevent="com.corejsf.showProgress" />
+				</h:inputText>
+
+				<h:graphicImage id="pole" library="images" style="display: none;"
+					name="orange-barber-pole.gif"  />
+
+				<h:message for="name" id="nameError" style="color:red;" />
+
+			</h:panelGroup>
 		
-		<h:graphicImage id="pole" library="images" name="orange-barber-pole.gif" style="display:none;" />
-		
-		<h:message for="name" id="nameError" style="color:red;" />
-		
-		</h:panelGroup>
-		
-		#{msgs.password}
-		<h:panelGroup>
-		   <h:inputSecret id="password" value="#{user.password}" />
-		   <h:message for="password" id="passwordError" style="color:red;" />
-		</h:panelGroup>
+		    #{msgs.password}
+
+		 <h:inputSecret id="password" value="#{user.password}" />
+		 <h:message for="password" id="passwordError" style="color:red;" />
 		
 		#{msgs.echo}
 		<h:outputText id="echo" value="#{user.name}" />
-		
-		
+
+
 		</h:panelGrid>
-	  <p>
-	     <h:commandButton styleClass="button" id="loginButton" value="#{msgs.loginButtonText}" action="#{user.loginAction}" />
-	  </p>
+		<p>
+			<h:commandButton styleClass="button" id="loginButton"
+				value="#{msgs.loginButtonText}" action="welcome" />
+		</p>
 	</h:form>
+	
+
+    <div style="padding: 20px;">
+         <h:form>
+            <h:panelGrid columns="2">
+               #{msgs.locationsPrompt}
+               <util:autoComplete value="#{user.city}"
+                     completionItems="#{autoComplete.locations}" />
+            </h:panelGrid>
+         </h:form>
+      </div>
+	  
+	  
 
 </h:body>
 </html>

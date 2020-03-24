@@ -5,3 +5,12 @@
   display: inline-block;
   border-radius: 12px;
 }
+
+select::-ms-expand {
+    display: none;
+}
+
+
+.sel-list{
+	width: inherit;
+}
