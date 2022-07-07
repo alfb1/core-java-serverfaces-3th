@@ -39,7 +39,7 @@ App messages</description>
 		<dependency>
 			<groupId>org.glassfish</groupId>
 			<artifactId>javax.faces</artifactId>
-			<version>2.2.1</version>
+			<version>2.2.6</version>
 		</dependency>
 	</dependencies>
 
